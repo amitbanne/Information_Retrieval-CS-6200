@@ -156,8 +156,6 @@ public class WebCrawler {
 					if(relevantCount==0)
 						continue;
 					
-					
-					System.out.print(seedCount + "-->" + url +"RCount: "+relevantCount+ " :");
 					Set<String> outLinks = getOutlinksForURL(url);
 					createDocumentForURL(new DocumentData(url, canonicalizedURL, title, bodyText, outLinks, current.getDepth()));
 					if (null != outLinks) {
@@ -177,7 +175,7 @@ public class WebCrawler {
 
 	private static boolean englishLanguageCheck(String bodyText) {
 		
-		LanguageIdentifier identifier = new LanguageIdentifier(bodyText);
+	      LanguageIdentifier identifier = new LanguageIdentifier(bodyText);
 	      String language = identifier.getLanguage();
 	      if(language.equals("en"))
 	    	  return true;
@@ -325,23 +323,13 @@ private static void createDocumentForURL(DocumentData documentData) {
 
 	if (documentsToBeWritten.size() == DOCUMENTS_PER_FILE) {
 		try {
-			// flush document data
 			flushDocumentData();
-			// flush catalog data
-			// flushDocumentCatalog();
-			// flush outlinks
-			// flushOutLinks();
-			// flush outlink catalog
-			// flushOutlinkCatalog();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		documentsToBeWritten = new LinkedHashMap<String, String>();
-		// documentCatalog = new LinkedHashMap<String, CatalogEntry>();
-		// urlOutLinkMap = new LinkedHashMap<String, Set<String>>();
-		// outlinkCatalog = new LinkedHashMap<String, CatalogEntry>();
 	}
 }
 
@@ -416,8 +404,6 @@ private static void flushOutlinkCatalog() {
 			sb.append(",");
 			sb.append(e.getValue().getEndOffSet());
 		}
-		// String outlinkcatalogNum = String.format(FILE_NUMBER_FORMAT,
-		// outlinkCatalogFileNumber++);
 		String inlinkcatalogFileName = DOCUMENT_DIRECTORY + "VAN_INLINK_CATALOG" + DOCUMENT_EXTENSION;
 		File file = new File(inlinkcatalogFileName);
 		try {
