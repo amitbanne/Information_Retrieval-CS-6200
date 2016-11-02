@@ -56,7 +56,7 @@ public class WebCrawler {
 	private static Map<String, Long> domainDelay = new HashMap<String, Long>();
 	private static final String FILE_NUMBER_FORMAT = "%04d";
 	private static final String DOCUMENT_EXTENSION = ".txt";
-	private static final String DOCUMENT_DIRECTORY = "C:/Users/NishantRatnakar/Desktop/Lecture Notes/IR/Amit/Assignment 3/corpus_pass_4/";
+	private static final String DOCUMENT_DIRECTORY = "./corpus";
 
 	private static final int DOCUMENTS_PER_FILE = 500;
 	private static final int TOTAL_CRAWL_SIZE = 20000;
